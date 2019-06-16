@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LangToggle element LangToggle should render properly 1`] = `
+<div
+  id="langToggle"
+  onClick={[Function]}
+>
+  <img
+    src="test-file-stub"
+  />
+  <span />
+  <div
+    hidden={true}
+    id="langDropDown"
+  >
+    <span
+      onClick={[Function]}
+    >
+      EN
+    </span>
+    <span
+      onClick={[Function]}
+    >
+      RU
+    </span>
+    <span
+      onClick={[Function]}
+    >
+      UA
+    </span>
+  </div>
+</div>
+`;

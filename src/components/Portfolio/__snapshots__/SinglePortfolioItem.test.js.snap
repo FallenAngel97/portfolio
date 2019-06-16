@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SinglePortfolioItem element SinglePortfolioItem should render properly 1`] = `
+<div
+  className="singlePortfolioElement"
+>
+  <span
+    className="portfolioTitle"
+  >
+    text
+  </span>
+  <h2 />
+</div>
+`;

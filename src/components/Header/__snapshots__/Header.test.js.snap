@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header element Header should render properly 1`] = `
+<header>
+  <div
+    id="langToggle"
+    onClick={[Function]}
+  >
+    <img
+      src="test-file-stub"
+    />
+    <span>
+      RU
+    </span>
+    <div
+      hidden={true}
+      id="langDropDown"
+    >
+      <span
+        onClick={[Function]}
+      >
+        EN
+      </span>
+      <span
+        onClick={[Function]}
+      >
+        RU
+      </span>
+      <span
+        onClick={[Function]}
+      >
+        UA
+      </span>
+    </div>
+  </div>
+  <nav
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "",
+      }
+    }
+  />
+</header>
+`;

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact element Contact should render properly 1`] = `
+<article
+  id="contact"
+/>
+`;

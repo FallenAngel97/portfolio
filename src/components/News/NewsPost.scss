@@ -1,0 +1,97 @@
+$size: 36px;
+$designNews: #ef3d9e;
+
+.newsTitle {
+    text-decoration: none;
+    color: #323232;
+    h4 {
+        margin: 9px 0px;
+        margin-left: 20px;
+        font-family: 'Franklin Gothic Demi';
+        font-weight: 100;
+    }
+}
+.singlePost {
+    position: relative;
+    min-height: 200px;
+    background: #f4f4f4;
+    display: inline-block;
+    border-radius: 12px;
+    box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.2);;
+    margin: 7px;
+    margin: 40px 20px;
+    color: #000;
+    vertical-align: top;
+    width: 315px;
+    height: 315px;
+    transition: .1s ease-in-out all;
+    hr {
+        width: calc(100% - 40px);
+    }
+    &:hover {
+        box-shadow: 1px 1px 6px 4px rgba(0, 0, 0, 0.2);;
+    }
+}
+
+.blocks-gallery-item img {
+    width: 140px !important;
+    flex: 0 1 auto !important;
+    margin: auto;
+}
+
+.dateOfPost {
+    float: right;
+    margin-right: 12px;
+}
+
+.holderContent {
+    height: 248px;
+    display: table;
+    width:100%;
+    text-align: center;
+    &>p {
+        vertical-align: middle;
+        display: table-cell;
+        padding: 20px 20px 0px 19px;
+    }
+}
+
+@mixin createCorner($designNews) {
+    filter: drop-shadow(1px 1px 2px $designNews);
+    border-top: $size solid $designNews;
+    display: block;
+    border-left: $size solid $designNews;
+    border-bottom: $size solid transparent;
+    border-right: $size solid transparent;
+    width: 0px;
+    position: absolute;
+    border-radius: 12px 0px 0px 0px;
+}
+
+.typeOfNews {
+    @include createCorner($designNews);
+    &.green {
+        @include createCorner(#13c013);
+    }
+    &.blue {
+        @include createCorner(#312fc9);
+    }
+}
+
+.typeOfNewsPic {
+    position: absolute;
+    height: 24px;
+    top: 10px;
+    left: 9px;
+}
+
+.newsHeroImage {
+    display: table-cell;
+    vertical-align: middle;
+    img {
+        max-width: 300px;
+        height: auto;
+        max-height: 240px;
+        width: auto;
+    }
+}

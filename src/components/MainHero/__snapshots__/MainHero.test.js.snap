@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainHero element MainHero should render properly 1`] = `
+<article
+  id="main-hero"
+>
+  <div
+    id="mainText"
+  >
+    <h3>
+      Welcome to the website of developer Fallen97Angel!
+    </h3>
+    <div
+      id="categories"
+    >
+      <div
+        className="category"
+      >
+        <img
+          src="test-file-stub"
+        />
+        <span>
+          Design of websites
+        </span>
+        <div
+          id="greenLine"
+        />
+      </div>
+      <div
+        className="category"
+      >
+        <img
+          src="test-file-stub"
+        />
+        <span>
+          Web-development
+        </span>
+        <div
+          id="yellowLine"
+        />
+      </div>
+      <div
+        className="category"
+      >
+        <img
+          src="test-file-stub"
+        />
+        <span>
+          Android application development
+        </span>
+        <div
+          id="redLine"
+        />
+      </div>
+    </div>
+  </div>
+</article>
+`;

@@ -1,0 +1,59 @@
+#contact {
+    height: 100vh;
+    width:100%;
+    display: table;
+    background: url("bg.png");
+    background-size: cover;
+    text-align: center;
+}
+#contactWidget {
+    display: table-cell;
+    vertical-align: middle;
+}
+.linkContact {
+    position: relative;
+}
+.underneath_item {
+    position: absolute !important;
+}
+.contact_item {
+    display: inline-block;
+    min-width: 200px;
+    padding: 4px;
+    border-radius: 3px;
+    margin: 3px 0px;
+    font-family: 'Franklin Gothic Demi';
+    font-size: 22px;
+    position: relative;
+}
+.singleSocialLink {
+    grid-template-columns: 9% auto auto;
+    width: 500px;
+    height:44px;
+    grid-gap: 10px;
+    display: grid;
+    position: relative;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    line-height: 44px;
+    img {
+        max-height: 30px;
+        margin-top: 50%;
+        transform: translateY(-50%);
+    }
+}
+.f97a-triangle {
+    width:0;
+    position: absolute;
+    right: -17px;
+    border-bottom: 22px solid transparent;
+    border-top: 22px solid transparent;
+}
+.wp-block-f97a-social-icons  {
+    display: table-cell;
+    vertical-align: middle;
+}
+.f97a-social-link-editor {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
