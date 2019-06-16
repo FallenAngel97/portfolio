@@ -10,7 +10,9 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "preDeploy": "gatsby build --prefix-paths",
+    "deploy": "npm run preDeploy && gh-pages -d public"
   },
   "dependencies": {
     "gatsby": "^2.4.2",
@@ -34,6 +36,7 @@
     "eslint-plugin-sonarjs": "^0.3.0",
     "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-react-svg": "^2.1.1",
+    "gh-pages": "^2.0.1",
     "prettier": "^1.17.0"
   },
   "repository": {
