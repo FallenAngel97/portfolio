@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/portfolio',
   siteMetadata: {
     title: 'Personal page of developer Alexey Demennikov',
     contacts: [
