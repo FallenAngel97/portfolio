@@ -39,10 +39,7 @@ export default class News extends React.Component {
               }
             }
           }
-        }
-
-          `
-        } render={
+        }`} render={
           (data) => data.allMarkdownRemark.nodes.map((post) => {
             return <NewsPost
               key={post.id}
