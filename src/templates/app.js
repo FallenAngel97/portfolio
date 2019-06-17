@@ -37,8 +37,8 @@ class App extends React.Component {
   langChanged(lang) {
     this.setState({lang: lang});
   }
-  const matches = typeof window !== `undefined` ? window.matchMedia("(max-width: 700px)").matches : false;
   render() {
+    const matches = typeof window !== `undefined` ? window.matchMedia("(max-width: 700px)").matches : false;
     return(
       <IntlProvider locale={this.state.lang} messages={messages[this.state.lang]}>
         <PortfolioContext.Provider value={matches}>
