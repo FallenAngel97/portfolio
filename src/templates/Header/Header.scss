@@ -6,9 +6,11 @@ header {
     z-index: 1;
     height:40px;
     background: linear-gradient(to bottom,rgba(#3a3a3a, .79%), rgba(#3a3a3a, .6));
+    display: flex;
+    justify-content: flex-end;
+
     nav {
         line-height: 40px;
-        float: right;
         margin-right: 131px;
     }
     a {
@@ -30,5 +32,15 @@ header {
         &:hover:after {
             width: 100%;
         }
+    }
+}
+.mobileNavigationIcon {
+    height: 16px;
+    margin: 0 15px;
+}
+
+@media screen and (max-width: 700px) {
+    header nav {
+        margin-right: auto;
     }
 }

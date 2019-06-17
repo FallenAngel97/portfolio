@@ -1,8 +1,11 @@
+@font-face {
+    font-family: 'PT Sans Bold';
+    src: url("2223.ttf");
+}
+
 #langToggle {
-    float: right;
     background: rgba(255,255,255,.05);
-    padding: 3px 6px;
-    margin-top: 7px;
+    padding: 9px 6px;
     margin-right: 41px;
     transition: .2s ease-in background;
     cursor: pointer;
@@ -39,4 +42,14 @@
     margin-left:10px;
     vertical-align: middle;
     margin-right:10px;
+}
+#mobileLangToggle {
+    background: #515151;
+    color: #fbfbfb;
+    font-family: 'PT Sans Bold';
+    span {
+        margin-top: 10px;
+        display: inline-block;
+        padding: 0px 12px;
+    }
 }

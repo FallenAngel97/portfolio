@@ -24,6 +24,8 @@ const messages = {
 
 addLocaleData([...en, ...ru, ...uk])
 
+export const PortfolioContext = React.createContext();
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +40,8 @@ class App extends React.Component {
   render() {
     return(
       <IntlProvider locale={this.state.lang} messages={messages[this.state.lang]}>
-        <>
+        <PortfolioContext.Provider value={window.matchMedia("(max-width: 700px)").matches}>
+          <>
           <Header
             lang={this.state.lang}
             langChanged={this.langChanged}
@@ -49,7 +52,8 @@ class App extends React.Component {
             <Portfolio lang={this.state.lang} />
             <Contact lang={this.state.lang} />
           </main>
-        </>
+          </>
+        </PortfolioContext.Provider>
       </IntlProvider>
     )
   }
