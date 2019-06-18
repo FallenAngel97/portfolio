@@ -46,6 +46,7 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     `gatsby-transformer-remark`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: "gatsby-plugin-react-svg",
       options: {

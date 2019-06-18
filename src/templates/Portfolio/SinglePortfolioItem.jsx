@@ -83,6 +83,7 @@ class SinglePortfolioItem extends React.Component {
       getElementsByTagName('canvas');
     const height = window.innerHeight;
     const canvas_width = parseInt(getComputedStyle(canvas).getPropertyValue("width"), 10);
+    console.log({canvas_width: canvas.getBoundingClientRect() });
     canvas.width = canvas_width * window.devicePixelRatio
     canvas.height = height * window.devicePixelRatio
     const ctx = canvas.getContext('2d');
@@ -122,7 +123,9 @@ class SinglePortfolioItem extends React.Component {
     this.drawTheBackground();
   }
   componentDidMount () {
-    this.drawTheBackground();
+    window.requestAnimationFrame(() => {
+      this.drawTheBackground();
+    });
   }
   static renderLinks (download_links) {
     return download_links.map((link) => (
