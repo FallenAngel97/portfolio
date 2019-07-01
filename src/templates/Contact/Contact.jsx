@@ -3,6 +3,7 @@ import "./Contact.scss";
 import { StaticQuery, graphql } from "gatsby"
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
+import { FormattedMessage } from "react-intl";
 
 /**
  * Prepends https
@@ -141,6 +142,9 @@ const Contact = () => (
     render={
       ({ site }) => (
         <article id="contact">
+          <FormattedMessage id="contactMeMessage">
+            {txt => <div id="contactMeMessage">{txt}</div>}
+          </FormattedMessage>
           <div id="contactWidget">
             {site.siteMetadata.contacts.map((contactObject, index) => {
               return <ContactItem key={index} data={contactObject} />

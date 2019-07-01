@@ -26,9 +26,7 @@ export default class NewsPost extends React.Component {
         <div className={'typeOfNews' + colorLeft}></div>
         <img className='typeOfNewsPic' src={pic} />
         <div className='holderContent'>
-          <p>
-            {this.props.content}
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: this.props.content || this.props.htmlMarkup }} />
         </div>
         <hr/>
         <div className="newsTitle"><h4>{this.props.title}</h4></div>
