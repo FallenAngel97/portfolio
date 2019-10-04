@@ -24,6 +24,7 @@ export default class News extends React.Component {
                 langKey
               }
               excerpt(pruneLength: 250)
+              rawMarkdownBody
               frontmatter {
                 title
                 type
@@ -48,6 +49,7 @@ export default class News extends React.Component {
               date={post.frontmatter.date}
               categories={post.frontmatter.news_category}
               content={post.excerpt}
+              htmlMarkup={post.rawMarkdownBody}
             />
           })
         }/>

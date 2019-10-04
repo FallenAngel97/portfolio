@@ -83,7 +83,6 @@ class SinglePortfolioItem extends React.Component {
       getElementsByTagName('canvas');
     const height = window.innerHeight;
     const canvas_width = parseInt(getComputedStyle(canvas).getPropertyValue("width"), 10);
-    console.log({canvas_width: canvas.getBoundingClientRect() });
     canvas.width = canvas_width * window.devicePixelRatio
     canvas.height = height * window.devicePixelRatio
     const ctx = canvas.getContext('2d');
@@ -128,8 +127,8 @@ class SinglePortfolioItem extends React.Component {
     });
   }
   static renderLinks (download_links) {
-    return download_links.map((link) => (
-      link.windows && <a rel="noopener noreferrer" target="_blank" href={link.windows}><WindowsLogo id="windows_logo" /></a>
+    return download_links.map((link, index) => (
+      link.windows && <a key={index} rel="noopener noreferrer" target="_blank" href={link.windows}><WindowsLogo id="windows_logo" /></a>
     ));
   }
   render() {
@@ -144,7 +143,10 @@ class SinglePortfolioItem extends React.Component {
             <tr>
               <td rowSpan={3}>
                 <div id="imgWrapper">
-                  {screenshots.map((screenshot, index) => <img alt={`screenshot ${index}`} key={index} className="screenshots" src={screenshot} />)}
+                  {screenshots.map(
+                    (screenshot, index) => <img alt={`screenshot ${index}`} key={index}
+                       className="screenshots" src={screenshot} />
+                  )}
                 </div>
               </td>
               <td>
