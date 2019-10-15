@@ -17,6 +17,10 @@ export default class News extends React.Component {
                 type: { eq: "news" }
               }
             }
+            sort: {
+              fields: [frontmatter___date],
+              order: DESC
+            }
           ) {
             nodes {
               id
