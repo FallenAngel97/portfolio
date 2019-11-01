@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withPrefix } from "gatsby"
+import { Helmet } from 'react-helmet';
 
 export default class ColorMixerLanding extends React.Component {
     render() {
@@ -7,6 +8,12 @@ export default class ColorMixerLanding extends React.Component {
 
         return (
             <main>
+                <Helmet>
+                    <title>Color Mixer - mix the colors in the game!</title>
+                    <meta name="description" content="Color Mixer game based on the additive mixing, available in Google Play market" />
+                    <meta name="keywords" content="game, application, android application, color, mixer, gaming, bonus" />
+                </Helmet>
+
                 <img id='colormixer-logo' src={ withPrefix('/color_mixer/logo.png') } />
                 <p>Simple, yet addictive game, based on the principle of additive mixing of colors. Mix the colors to get the proper color, shown by the platform, coming from the bottom</p>
                 <a href='https://play.google.com/store/apps/details?id=com.color_mixer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
