@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default () => (
-  <>
+  <main id='main-highlighted'>
     <h3>Cookies and Policies</h3>
     <p>
       Color Mixer does not communicate with web server and solely works on your device. Therefore, it does not need any access to cookie or your browser data. Beware of scammers, which may require this from you. We, at Color Mixer does not require this from you
@@ -18,5 +18,5 @@ export default () => (
     <p>
       Color Mixer may update this privacy policy and update all the provided links to it, so you can read it again and accept or reject changes
     </p>
-  </>
+  </main>
 )
