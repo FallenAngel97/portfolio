@@ -1,6 +1,6 @@
 body {
     background: #1b031a;
-    background-image: url("/color_mixer/background-landing.png");
+    background-image: urçl("../../static/color_mixer/background-landing.png");
     background-position: top center;
 }
 
@@ -102,5 +102,46 @@ a img {
         &:after, &:before {
             display: none;
         }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        background-image: url("../../static/color_mixer/background-mobile.jpg");
+        background-size: auto auto;
+        background-repeat: no-repeat;
+    }
+    #colormixer-logo {
+        height: 90px;
+    }
+    p {
+        margin-top: 516px;
+        font-size: 16px;
+        margin-left: 0;
+        margin-top: 412px;
+        font-size: 16px;
+        &:before, &:after {
+            height: 20px;
+            width: 20px;
+        }
+
+        &:before {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        &:after {
+            top: 10px;
+            left: 10px;
+        }
+    }
+    a img { 
+        margin-left: 16px;
+    }
+    #screenshot-colormixer {
+        top: 57px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 471px;
     }
 }
