@@ -7,22 +7,17 @@ import News from "../templates/News/News.jsx";
 import Contact from "../templates/Contact/Contact.jsx";
 import Portfolio from "../templates/Portfolio/Portfolio.jsx";
 import { HashRouter } from "react-router-dom";
-import { IntlProvider, addLocaleData } from "react-intl";
+import { IntlProvider } from "react-intl";
 
 import messages_en from "../translations/en.json";
 import messages_ru from "../translations/ru.json";
 import messages_uk from "../translations/ua.json";
-import en from 'react-intl/locale-data/en.js';
-import ru from 'react-intl/locale-data/ru.js';
-import uk from 'react-intl/locale-data/uk.js';
 
 const messages = {
   'en': messages_en,
   'ru': messages_ru,
   'uk': messages_uk
 };
-
-addLocaleData([...en, ...ru, ...uk])
 
 export const PortfolioContext = React.createContext();
 
