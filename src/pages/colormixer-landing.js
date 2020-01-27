@@ -7,7 +7,7 @@ export default class ColorMixerLanding extends React.Component {
         require("./colormixer-landing.scss");
 
         return (
-            <main>
+            <main id='mixer_landing_main'>
                 <Helmet>
                     <title>Color Mixer - mix the colors in the game!</title>
                     <meta name="description" content="Color Mixer game based on the additive mixing, available in Google Play market" />
