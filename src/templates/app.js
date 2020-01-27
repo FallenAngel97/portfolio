@@ -19,11 +19,20 @@ const messages = {
 
 export const PortfolioContext = React.createContext();
 
+function getLanguage() {
+  if(typeof window === 'undefined')
+    return 'en';
+
+  const langNavigator = navigator.language.split(/[-_]/)[0];
+
+  return messages.hasOwnProperty(langNavigator) ? langNavigator : 'en';
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      lang: typeof window !== 'undefined' ? navigator.language.split(/[-_]/)[0] : ''
+      lang: getLanguage()
     }
     this.langChanged = this.langChanged.bind(this);
   }
