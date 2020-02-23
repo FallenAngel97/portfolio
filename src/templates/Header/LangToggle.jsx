@@ -4,14 +4,10 @@ import translate_pic from './translate.svg';
 import { PortfolioContext } from "../app";
 
 export default class LangToggle extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            langDropDownOpened: false
-        }
-        this.langClicked = this.langClicked.bind(this);
+    state = {
+        langDropDownOpened: false
     }
-    langClicked(lang) {
+    langClicked = (lang) => (ev) => {
         this.setState({langDropDownOpened: !this.state.langDropDownOpened});
         this.props.langChanged(lang);
     }
@@ -24,15 +20,15 @@ export default class LangToggle extends React.Component {
                             <img src={translate_pic} />
                             <span>{this.props.lang}</span>
                             <div hidden={!this.state.langDropDownOpened} id='langDropDown'>
-                                <span onClick={() => this.langClicked('en') }>EN</span>
-                                <span onClick={() => this.langClicked('ru') }>RU</span>
-                                <span onClick={() => this.langClicked('uk') }>UA</span>
+                                <span onClick={ this.langClicked('en') }>EN</span>
+                                <span onClick={ this.langClicked('ru') }>RU</span>
+                                <span onClick={ this.langClicked('uk') }>UA</span>
                             </div>
                         </div> : 
                         <div id='mobileLangToggle'>
-                            <span onClick={() => this.langClicked('en') }>EN</span>
-                            <span onClick={() => this.langClicked('ru') }>RU</span>
-                            <span onClick={() => this.langClicked('uk') }>UA</span>
+                            <span onClick={ this.langClicked('en')}>EN</span>
+                            <span onClick={ this.langClicked('ru') }>RU</span>
+                            <span onClick={ this.langClicked('uk') }>UA</span>
                         </div>}
                     </>
                 )}

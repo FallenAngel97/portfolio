@@ -1,5 +1,5 @@
 import React from "react";
-import "../templates/app.scss";
+import "./app.scss";
 import MainHero from "../templates/MainHero/MainHero.jsx";
 import Header from "../templates/Header/Header.jsx";
 import News from "../templates/News/News.jsx";
@@ -29,15 +29,11 @@ function getLanguage() {
 }
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      lang: getLanguage()
-    }
-    this.langChanged = this.langChanged.bind(this);
+  state = {
+    lang: getLanguage()
   }
-  langChanged(lang) {
-    this.setState({lang: lang});
+  langChanged = lang => {
+    this.setState({ lang });
   }
   render() {
     const matches = typeof window !== `undefined` ? window.matchMedia("(max-width: 700px)").matches : false;
