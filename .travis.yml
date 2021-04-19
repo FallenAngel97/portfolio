@@ -6,7 +6,6 @@ cache:
   - node_modules
 deploy:
   provider: pages
-  skip-cleanup: true
   github-token: $GITHUB_TOKEN
   local_dir: public
   keep-history: true
