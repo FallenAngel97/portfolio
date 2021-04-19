@@ -9,7 +9,7 @@ jobs:
         with:
           node-version: '14'
       - run: npm install
-      - run: npm install -g gatsby
+      - run: npm install react-is
       - run: npm run preDeploy
 
       - name: Deploy
