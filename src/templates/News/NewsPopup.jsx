@@ -27,14 +27,15 @@ const DesignBadge = () => {
 }
 
 export default class NewsPopup extends React.Component {
+  state = {
+    title: '',
+    date: '',
+    content: '',
+    categories: ''
+  }
+
   constructor(props) {
     super(props);
-    this.state = {
-      title: '',
-      date: '',
-      content: '',
-      categories: ''
-    }
     let xhr = new XMLHttpRequest();
     let slug = window.location.href.match(/news\/(.*)$/i);
     xhr.open("GET", "/wp-json/wp/v2/posts?slug="+slug[1].replace(/\/$/, ''));
@@ -51,14 +52,12 @@ export default class NewsPopup extends React.Component {
       }
     }
     xhr.send();
-    this.back = this.back.bind(this);
   }
   back = e => {
     e.stopPropagation();
     this.props.history.goBack();
   };
   render() {
-    console.log(this.state.categories)
     let badge = <DesignBadge />;
     // if(this.state.categories.indexOf(CustomThemeSettings.categories.web_development) > -1) {
     //   badge = <WebBadge />;

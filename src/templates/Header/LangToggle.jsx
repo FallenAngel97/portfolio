@@ -1,42 +1,38 @@
-import React from "react";
+import React, {useState} from "react";
 import "./LangToggle.scss";
 import translate_pic from './translate.svg';
 import { PortfolioContext } from "../app";
 
-export default class LangToggle extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            langDropDownOpened: false
-        }
-        this.langClicked = this.langClicked.bind(this);
+const LangToggle = (props) => {
+    const [langDropDownOpened, setLangDropDownOpened] = useState(false)
+
+    const langClicked = (lang) => {
+        setLangDropDownOpened((opened) => !opened);
+        props.langChanged(lang);
     }
-    langClicked(lang) {
-        this.setState({langDropDownOpened: !this.state.langDropDownOpened});
-        this.props.langChanged(lang);
-    }
-    render() {
-        return(
-            <PortfolioContext.Consumer>
-                {(isMobile) => (
-                    <>
-                        {!isMobile ? <div onClick={()=>this.setState({langDropDownOpened: !this.state.langDropDownOpened})} id='langToggle'>
-                            <img src={translate_pic} />
-                            <span>{this.props.lang}</span>
-                            <div hidden={!this.state.langDropDownOpened} id='langDropDown'>
-                                <span onClick={() => this.langClicked('en') }>EN</span>
-                                <span onClick={() => this.langClicked('ru') }>RU</span>
-                                <span onClick={() => this.langClicked('uk') }>UA</span>
-                            </div>
-                        </div> : 
-                        <div id='mobileLangToggle'>
-                            <span onClick={() => this.langClicked('en') }>EN</span>
-                            <span onClick={() => this.langClicked('ru') }>RU</span>
-                            <span onClick={() => this.langClicked('uk') }>UA</span>
-                        </div>}
-                    </>
-                )}
-            </PortfolioContext.Consumer>
-        );
-    }
+
+    return(
+        <PortfolioContext.Consumer>
+            {(isMobile) => (
+                <>
+                    {isMobile === false ? <div onClick={() => setLangDropDownOpened((opened) => !opened)} id="langToggle">
+                        <img src={translate_pic} />
+                        <span>{props.lang}</span>
+                        <div hidden={!langDropDownOpened} id="langDropDown">
+                            <span onClick={() => langClicked('en') }>EN</span>
+                            <span onClick={() => langClicked('ru') }>RU</span>
+                            <span onClick={() => langClicked('uk') }>UA</span>
+                        </div>
+                    </div>
+                    : <div id="mobileLangToggle">
+                        <span onClick={() => langClicked('en') }>EN</span>
+                        <span onClick={() => langClicked('ru') }>RU</span>
+                        <span onClick={() => langClicked('uk') }>UA</span>
+                </div>}
+            </>
+            )}
+        </PortfolioContext.Consumer>
+    );
 }
+
+export default LangToggle;

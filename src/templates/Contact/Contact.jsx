@@ -89,11 +89,10 @@ function createKeyframes (inner_color, outer_color) {
 `;
 }
 
-class ContactItem extends React.Component {
-  render() {
-    const { bg_color, text_color, link, name } = this.props.data;
-    const webDrop = createKeyframes(text_color, bg_color);
-    const ColorizedDiv = styled.div`
+const ContactItem = (props) => {
+  const { bg_color, text_color, link, name } = props.data;
+  const webDrop = createKeyframes(text_color, bg_color);
+  const ColorizedDiv = styled.div`
       box-shadow: 0px 0px 3px ${bg_color};
       color: ${text_color};
       background: linear-gradient(to top, ${pSBC(-0.2, bg_color)}, ${pSBC(0.2, bg_color)});
@@ -103,18 +102,17 @@ class ContactItem extends React.Component {
         animation-fill-mode: forwards;
       }
     `;
-    
-    return (
-      <div>
-        <a className="linkContact" target="_blank"
-            rel="noopener noreferrer" href={createUrl(link)}>
-          <ColorizedDiv className="contact_item">
-            { name }
-          </ColorizedDiv>
-        </a>
-      </div>
-    )
-  }
+
+  return (
+    <div>
+      <a className="linkContact" target="_blank"
+        rel="noopener noreferrer" href={createUrl(link)}>
+        <ColorizedDiv className="contact_item">
+          { name }
+        </ColorizedDiv>
+      </a>
+    </div>
+  )
 }
 
 ContactItem.propTypes = {

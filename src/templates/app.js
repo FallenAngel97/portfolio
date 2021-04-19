@@ -1,12 +1,10 @@
-import React from "react";
-import { graphql } from "gatsby"
+import React, { useMemo, useState } from "react";
 import "../templates/app.scss";
 import MainHero from "../templates/MainHero/MainHero.jsx";
 import Header from "../templates/Header/Header.jsx";
 import News from "../templates/News/News.jsx";
 import Contact from "../templates/Contact/Contact.jsx";
 import Portfolio from "../templates/Portfolio/Portfolio.jsx";
-import { HashRouter } from "react-router-dom";
 import { IntlProvider } from "react-intl";
 
 import messages_en from "../translations/en.json";
@@ -21,47 +19,49 @@ const messages = {
 
 export const PortfolioContext = React.createContext();
 
+/**
+ * @returns {string} language of the browser
+ */
 function getLanguage() {
-  if(typeof window === 'undefined')
+  if(typeof window === 'undefined' || typeof navigator === 'undefined') {
     return 'en';
+  }
 
-  const langNavigator = navigator.language.split(/[-_]/)[0];
+  const [langNavigator] = navigator.language.split(/[-_]/);
 
-  return messages.hasOwnProperty(langNavigator) ? langNavigator : 'en';
+  return Reflect.apply(Object.prototype.hasOwnProperty, messages, langNavigator) ? langNavigator : 'en';
 }
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      lang: getLanguage()
-    }
-    this.langChanged = this.langChanged.bind(this);
+const App = () => {
+  const [lang, setLang] = useState(getLanguage());
+
+  const langChanged = (_lang) => {
+    setLang(_lang);
   }
-  langChanged(lang) {
-    this.setState({lang: lang});
-  }
-  render() {
-    const matches = typeof window !== `undefined` ? window.matchMedia("(max-width: 700px)").matches : false;
+
+  const matches = useMemo(
+    () => (typeof navigator === `undefined` ? false : window.matchMedia("(max-width: 700px)").matches),
+    []
+  );
+
     return(
-      <IntlProvider locale={this.state.lang} messages={messages[this.state.lang]}>
+      <IntlProvider locale={lang} messages={messages[lang]}>
         <PortfolioContext.Provider value={matches}>
           <>
-          <Header
-            lang={this.state.lang}
-            langChanged={this.langChanged}
-          />
-          <main>
-            <MainHero lang={this.state.lang} />
-            <News lang={this.state.lang} />
-            <Portfolio lang={this.state.lang} />
-            <Contact lang={this.state.lang} />
-          </main>
+            <Header
+              lang={lang}
+              langChanged={langChanged}
+            />
+            <main>
+              <MainHero lang={lang} />
+              <News lang={lang} />
+              <Portfolio lang={lang} />
+              <Contact lang={lang} />
+            </main>
           </>
         </PortfolioContext.Provider>
       </IntlProvider>
     )
-  }
 }
 
 export default App
