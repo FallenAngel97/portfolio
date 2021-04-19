@@ -15,8 +15,8 @@ function getRandomArbitrary(min, max) {
 const starsAmount = 60;
 
 const createStar = () => ({
-    left: getRandomArbitrary(0, window.innerWidth),
-    top:  getRandomArbitrary(0, window.innerHeight),
+    left: getRandomArbitrary(0, (typeof navigator === 'undefined') ? 0 : window.innerWidth),
+    top:  getRandomArbitrary(0, (typeof navigator === 'undefined') ? 0 : window.innerHeight),
     size: getRandomArbitrary(4, 10),
     changingVelocity: Math.random(),
     opacity: 1,
