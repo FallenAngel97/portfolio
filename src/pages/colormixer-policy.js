@@ -1,14 +1,14 @@
 import React from 'react';
 
-export default () => (
-  <main id='main-highlighted'>
+const ColorMixerPolicy = () => (
+  <main id="main-highlighted">
     <h3>Cookies and Policies</h3>
     <p>
       Color Mixer does not communicate with web server and solely works on your device. Therefore, it does not need any access to cookie or your browser data. Beware of scammers, which may require this from you. We, at Color Mixer does not require this from you
     </p>
     <h3>Third-party services</h3>
     <p>
-      Color Mixer uses MonoGame and Xamarin, which do not invoke communication to external web services. You can get more from information from their websites: <a href='https://dotnet.microsoft.com/apps/xamarin'>https://dotnet.microsoft.com/apps/xamarin</a> and <a href='http://www.monogame.net/'>http://www.monogame.net/</a>
+      Color Mixer uses MonoGame and Xamarin, which do not invoke communication to external web services. You can get more from information from their websites: <a href="https://dotnet.microsoft.com/apps/xamarin">https://dotnet.microsoft.com/apps/xamarin</a> and <a href="http://www.monogame.net/">http://www.monogame.net/</a>
     </p>
     <h3>Advertisement</h3>
     <p>
@@ -20,3 +20,5 @@ export default () => (
     </p>
   </main>
 )
+
+export default ColorMixerPolicy;

@@ -9,7 +9,7 @@ import {
   PolicyButton,
   ColorMixerScreenshot,
   ButtonWrapper,
-} from "./colormixer-landing.styles"
+} from "../templates/colormixer-landing.styles"
 
 /**
  * ColorMixerLanding - used for the part of color mixer project

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default () => (
+const SpaceChainsPolicy = () => (
   <>
     <h3>Cookies and Policies</h3>
     <p>
@@ -20,3 +20,5 @@ export default () => (
     </p>
   </>
 )
+
+export default SpaceChainsPolicy;
