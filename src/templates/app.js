@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import "../templates/app.scss";
+import "./app.scss";
 import MainHero from "../templates/MainHero/MainHero.jsx";
 import Header from "../templates/Header/Header.jsx";
 import News from "../templates/News/News.jsx";
