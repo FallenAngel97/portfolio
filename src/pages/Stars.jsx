@@ -1,5 +1,12 @@
-import React from 'react';
-import spacechainsStyles from './spacechains-landing.module.scss';
+import React, { useState, useEffect, useCallback } from 'react';
+import styled from 'styled-components';
+
+const SingleStar = styled.div`
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 6px 2px rgba(#fff, .52);
+`;
 
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
@@ -15,43 +22,44 @@ const createStar = () => ({
     opacity: 1,
 })
 
-class Stars extends React.Component {
-    state = {
-        stars: new Array(starsAmount).fill(null).map(() => createStar())
-    }
-    componentDidMount() {
-        this.regenerateStars();
-    }
-    regenerateStars = () => {
-        this.setState(({ stars }) => ({
-            stars: [ ... stars.map(star => ({
-                        ...star, 
-                        opacity: star.opacity -= star.changingVelocity * 0.1, 
-                    })).filter(star => star.opacity > 0),
-                    ...new Array(starsAmount - stars.length).fill(null).map(() => createStar())
-                   ]
-        }))
-        setTimeout(this.regenerateStars, 1000);
-    }
-    render() {
-        return (
-            <div>
-                {this.state.stars.map((star, index) => (
-                <div
+const Stars = () => {
+    const [stars, setStars] = useState(new Array(starsAmount).
+        fill(null).
+        map(() => createStar()));
+
+    const regenerateStars = useCallback(() => {
+        setStars((_stars) => ([
+            ...stars.map((star) => ({
+                ...star, 
+                opacity: (star.opacity -= star.changingVelocity * 0.1), 
+            })).filter((star) => star.opacity > 0),
+                ...new Array(starsAmount - _stars.length).
+                    fill(null).
+                    map(() => createStar())
+            ]
+        ))
+        setTimeout(regenerateStars, 1000);
+    }, [stars]);
+
+    useEffect(() => {
+        regenerateStars();
+    }, [regenerateStars]);
+
+    return (
+        <div>
+            {stars.map((star, index) => (
+                <SingleStar
                     key={index}
                     style={{ 
                         top:    star.top, 
                         left:   star.left, 
-                        height: star.size + 'px',
-                        width:  star.size + 'px',
+                        height: `${star.size}px`,
+                        width:  `${star.size}px`,
                         opacity: star.opacity
-                    }}
-                    className={spacechainsStyles['singleStar']} />
-                ))}
-            </div>
-        )
-    }
+                    }} />
+            ))}
+        </div>
+    )
 }
-
 
 export default Stars;
