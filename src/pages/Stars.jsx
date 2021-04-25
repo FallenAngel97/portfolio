@@ -43,7 +43,7 @@ const Stars = () => {
 
     useEffect(() => {
         regenerateStars();
-    }, [regenerateStars]);
+    }, []);
 
     return (
         <div>
