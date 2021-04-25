@@ -27,8 +27,6 @@ const Asteroids = () => {
     }
   }, [])
 
-  console.log(asteroids)
-
   return asteroids.map((asteroidObj, index) => (
     <img
       style={{
